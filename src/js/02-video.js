@@ -10,5 +10,8 @@ player.on('timeupdate', throttle(onSaveTime, 1000));
 function onSaveTime({ seconds }) {
   localStorage.setItem(STORAGE_KEY, seconds);
 }
+const getStorageValue = localStorage.getItem(STORAGE_KEY);
 
-player.setCurrentTime(localStorage.getItem(STORAGE_KEY));
+if (getStorageValue) {
+  player.setCurrentTime(getStorageValue);
+}
