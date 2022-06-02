@@ -17,7 +17,8 @@ populateInput();
 
 //Функція при якій записується значення форми в сховище
 function onTextInput(ev) {
-  formData[ev.target.name] = ev.target.value;
+  const { name, value } = ev.target;
+  formData[name] = value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
